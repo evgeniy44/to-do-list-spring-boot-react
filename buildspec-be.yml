@@ -16,5 +16,5 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - docker tag todo-be:latest 368888336862.dkr.ecr.us-east-1.amazonaws.com/todo-be-repo:latest
-      - docker push 368888336862.dkr.ecr.us-east-1.amazonaws.com/todo-be-repo:latest
+      - docker tag todo-be:latest 368888336862.dkr.ecr.us-east-1.amazonaws.com/student-demo-lab3-lecture:latest
+      - docker push 368888336862.dkr.ecr.us-east-1.amazonaws.com/student-demo-lab3-lecture:latest
