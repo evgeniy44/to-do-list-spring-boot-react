@@ -23,3 +23,6 @@ phases:
 #      - echo Pushing the Docker image...
 #      - docker tag todo-fe:latest 368888336862.dkr.ecr.us-east-1.amazonaws.com/todo-fe-repo:latest
 #      - docker push 368888336862.dkr.ecr.us-east-1.amazonaws.com/todo-fe-repo:latest
+artifacts:
+  files:
+    - 'frontend/build/**/*'
