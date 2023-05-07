@@ -7,19 +7,19 @@ phases:
       - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 368888336862.dkr.ecr.us-east-1.amazonaws.com
   build:
     commands:
-      - docker login -u haffman44 -p pvg@tgn6kxn-ytv*XJB
+#      - docker login -u haffman44 -p pvg@tgn6kxn-ytv*XJB
       - echo Build started on `date`
       - cd frontend
       - npm install
       - find src/ -type f -exec sed -i 's/localhost:3001/54.227.68.65:3001/g' {} +
       - npm run build
-      - docker build -t todo-fe:latest .
-      - docker logout
+#      - docker build -t todo-fe:latest .
+#      - docker logout
   post_build:
     commands:
       - echo Build completed on `date`
-      - echo Logging in to Amazon ECR...
-      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 368888336862.dkr.ecr.us-east-1.amazonaws.com
-      - echo Pushing the Docker image...
-      - docker tag todo-fe:latest 368888336862.dkr.ecr.us-east-1.amazonaws.com/todo-fe-repo:latest
-      - docker push 368888336862.dkr.ecr.us-east-1.amazonaws.com/todo-fe-repo:latest
+#      - echo Logging in to Amazon ECR...
+#      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 368888336862.dkr.ecr.us-east-1.amazonaws.com
+#      - echo Pushing the Docker image...
+#      - docker tag todo-fe:latest 368888336862.dkr.ecr.us-east-1.amazonaws.com/todo-fe-repo:latest
+#      - docker push 368888336862.dkr.ecr.us-east-1.amazonaws.com/todo-fe-repo:latest
