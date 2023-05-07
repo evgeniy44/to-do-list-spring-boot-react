@@ -18,3 +18,4 @@ phases:
       - echo Pushing the Docker image...
       - docker tag todo-be:latest 368888336862.dkr.ecr.us-east-1.amazonaws.com/student-demo-lab3-lecture:latest
       - docker push 368888336862.dkr.ecr.us-east-1.amazonaws.com/student-demo-lab3-lecture:latest
+      - aws ecs register-task-definition --region "us-east-1" --cli-input-json file://backend/student-demo-lecture-td-revision2-AWS-CLI-input.json

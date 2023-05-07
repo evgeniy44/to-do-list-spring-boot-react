@@ -1,0 +1,46 @@
+{
+    "family": "student-demo-lecture-td",
+    "containerDefinitions": [
+        {
+            "name": "student-demo-todo-be",
+            "image": "368888336862.dkr.ecr.us-east-1.amazonaws.com/student-demo-lab3-lecture:latest",
+            "cpu": 0,
+            "portMappings": [
+                {
+                    "name": "student-demo-todo-be-3001-tcp",
+                    "containerPort": 3001,
+                    "hostPort": 0,
+                    "protocol": "tcp",
+                    "appProtocol": "http"
+                }
+            ],
+            "essential": true,
+            "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "/ecs/student-demo-lecture-td",
+                    "awslogs-create-group": "true",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "ecs"
+                }
+            }
+        }
+    ],
+    "taskRoleArn": "arn:aws:iam::368888336862:role/ecsTaskRoleNew",
+    "executionRoleArn": "arn:aws:iam::368888336862:role/ecsTaskExecutionRole",
+    "requiresCompatibilities": [
+        "EC2"
+    ],
+    "cpu": "1024",
+    "memory": "768",
+    "runtimePlatform": {
+        "cpuArchitecture": "X86_64",
+        "operatingSystemFamily": "LINUX"
+    },
+    "tags": [
+        {
+            "key": "Owner",
+            "value": "student-demo"
+        }
+    ]
+}
