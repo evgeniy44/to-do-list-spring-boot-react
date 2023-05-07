@@ -50,6 +50,12 @@ public class TodoController {
 		}
 		return new ResponseEntity<>(todoService.readAll(principal.getName()), HttpStatus.OK);
 	}
+
+	@ResponseStatus(code = HttpStatus.OK)
+	@RequestMapping(value = "/api/todo/hello", method = RequestMethod.GET)
+	public ResponseEntity<String> hello() {
+		return new ResponseEntity<>("Hello stu.cn.ua!", HttpStatus.OK);
+	}
 	
 	@ResponseStatus(code = HttpStatus.OK)
 	@RequestMapping(value = "/api/todo/count", method = RequestMethod.GET)
