@@ -25,5 +25,6 @@ phases:
 #      - docker push 368888336862.dkr.ecr.us-east-1.amazonaws.com/todo-fe-repo:latest
 artifacts:
   files:
-    - 'frontend/build/**/*'
-  discard-paths: yes
+    - '**/*'
+  base-directory: frontend/build
+#  discard-paths: yes
