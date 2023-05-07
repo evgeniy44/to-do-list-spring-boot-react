@@ -11,7 +11,7 @@ phases:
       - echo Build started on `date`
       - cd frontend
       - npm install
-      - find src/ -type f -exec sed -i 's/localhost:3001/54.227.68.65:3001/g' {} +
+      - find src/ -type f -exec sed -i 's/localhost:3001/student-demo-lecture-ecs-lb-1-450180631.us-east-1.elb.amazonaws.com/g' {} +
       - npm run build
 #      - docker build -t todo-fe:latest .
 #      - docker logout
