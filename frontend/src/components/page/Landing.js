@@ -66,7 +66,7 @@ export default function Landing({isAuthenticated, setIsAuthenticated}) {
 
 	return (
 		<div className="text-center">
-			<h1>Todo List Application</h1>
+			<h1>Todo List Application(Student Demo Edition)</h1>
       {showErrorMessage()}
 			{message}
 		</div>
