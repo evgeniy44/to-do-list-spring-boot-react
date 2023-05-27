@@ -20,6 +20,6 @@ public class StudentController {
 	@ResponseStatus(code = HttpStatus.OK)
 	@RequestMapping(value = "/api/student/hello", method = RequestMethod.GET)
 	public ResponseEntity<String> hello() {
-		return new ResponseEntity<>("Hello From Student V1", HttpStatus.OK);
+		return new ResponseEntity<>("Hello From Student V2", HttpStatus.OK);
 	}
 }
