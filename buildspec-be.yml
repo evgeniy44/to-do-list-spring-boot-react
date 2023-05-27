@@ -1,0 +1,26 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 368888336862.dkr.ecr.us-east-1.amazonaws.com
+  build:
+    commands:
+      - echo Build started on `date` dev
+      - echo Current GIT Version
+      - echo $CODEBUILD_RESOLVED_SOURCE_VERSION
+      - cd backend
+      - cd to-do-list
+      - mvn clean install
+      - docker build -t todo-be:latest .
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker image...
+      - docker tag todo-be:latest 368888336862.dkr.ecr.us-east-1.amazonaws.com/student-demo-lab3-lecture:latest
+      - docker push 368888336862.dkr.ecr.us-east-1.amazonaws.com/student-demo-lab3-lecture:latest
+      - docker tag todo-be:latest 368888336862.dkr.ecr.us-east-1.amazonaws.com/student-demo-lab3-lecture:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - docker push 368888336862.dkr.ecr.us-east-1.amazonaws.com/student-demo-lab3-lecture:$CODEBUILD_RESOLVED_SOURCE_VERSION
+      - cd ..
+      - aws ecs register-task-definition --region "us-east-1" --cli-input-json file://student-demo-lecture-td-revision2-AWS-CLI-input.json
